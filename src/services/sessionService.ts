@@ -1,4 +1,4 @@
-import { FilterQuery } from 'mongoose';
+import { FilterQuery, UpdateQuery } from 'mongoose';
 import SessionModel, { SessionDocument } from '../models/sessionModel';
 
 
@@ -12,8 +12,9 @@ export async function findSessions(query: FilterQuery<SessionDocument>) {
     return session;
 }
 
-export async function deleteSession(query: FilterQuery<SessionDocument>) {
-    const session = await SessionModel.find(query).lean();
-    SessionModel.deleteOne(session);
-    return session;
+export async function updateSession(
+    query: FilterQuery<SessionDocument>,
+    update: UpdateQuery<SessionDocument> 
+    ) {
+    return SessionModel.updateOne(query, update);
 }
