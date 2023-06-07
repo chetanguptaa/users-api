@@ -4,7 +4,9 @@
   "description": "",
   "main": "dict/app.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "npx tsc",
+    "prod": "node dist/src/app.js"
   },
   "keywords": [],
   "author": "",
