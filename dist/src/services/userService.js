@@ -16,7 +16,7 @@ async function createUser(input) {
     }
 }
 exports.createUser = createUser;
-async function validatePassword({ email, password }) {
+async function validatePassword({ email, password, }) {
     const user = await userModel_1.default.findOne({ email });
     if (!user) {
         return false;
@@ -24,7 +24,7 @@ async function validatePassword({ email, password }) {
     const isValid = await user.comparePassword(password);
     if (!isValid)
         return false;
-    return (0, lodash_1.omit)(user.toJSON(), 'password');
+    return (0, lodash_1.omit)(user.toJSON(), "password");
 }
 exports.validatePassword = validatePassword;
 async function findUser(query) {

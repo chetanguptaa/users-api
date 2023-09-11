@@ -26,7 +26,7 @@ function startMetricsServer() {
         return res.send(await prom_client_1.default.register.metrics());
     });
     app.listen(9100, () => {
-        logger_1.default.info('metrics server start at http://localhost:9100');
+        logger_1.default.info("metrics server start at http://localhost:9100");
     });
 }
 exports.startMetricsServer = startMetricsServer;

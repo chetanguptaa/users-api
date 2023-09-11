@@ -11,11 +11,11 @@ const config_1 = __importDefault(require("config"));
 async function createUserSessionHandler(req, res) {
     const user = await (0, userService_1.validatePassword)(req.body);
     if (!user) {
-        return res.status(401).send('Invalid email or password');
+        return res.status(401).send("Invalid email or password");
     }
     const session = await (0, sessionService_1.createSession)(user._id, req.get("user-agent") || "");
-    const accessToken = (0, jwt_1.signJwt)(Object.assign(Object.assign({}, user), { session: session._id }), 'accessPrivateKey', { expiresIn: config_1.default.get("accessTokenTimeToLive") });
-    const refreshToken = (0, jwt_1.signJwt)(Object.assign(Object.assign({}, user), { session: session._id }), 'refreshPrivateKey', { expiresIn: config_1.default.get("refreshTokenTimeToLive") });
+    const accessToken = (0, jwt_1.signJwt)(Object.assign(Object.assign({}, user), { session: session._id }), "accessPrivateKey", { expiresIn: config_1.default.get("accessTokenTimeToLive") });
+    const refreshToken = (0, jwt_1.signJwt)(Object.assign(Object.assign({}, user), { session: session._id }), "refreshPrivateKey", { expiresIn: config_1.default.get("refreshTokenTimeToLive") });
     return res.send({ accessToken, refreshToken });
 }
 exports.createUserSessionHandler = createUserSessionHandler;
@@ -30,7 +30,7 @@ async function deleteUserSessionHandler(req, res) {
     await (0, sessionService_1.updateSession)({ _id: sessionId }, { valid: false });
     return res.send({
         accessToken: null,
-        refreshToken: null
+        refreshToken: null,
     });
 }
 exports.deleteUserSessionHandler = deleteUserSessionHandler;

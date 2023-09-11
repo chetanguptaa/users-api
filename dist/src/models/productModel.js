@@ -19,7 +19,7 @@ const productSchema = new mongoose_1.default.Schema({
     },
     user: {
         type: mongoose_1.default.Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
     },
     title: {
         type: String,
@@ -36,7 +36,7 @@ const productSchema = new mongoose_1.default.Schema({
     image: {
         type: String,
         required: true,
-    }
+    },
 }, {
     timestamps: true,
 });

@@ -21,7 +21,7 @@ async function updateProductHandler(req, res) {
         return res.sendStatus(403);
     }
     const updatedProduct = await (0, productService_1.findAndUpdateProduct)({
-        productId
+        productId,
     }, update, {
         new: true,
     });

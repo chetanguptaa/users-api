@@ -18,15 +18,15 @@ function verifyJwt(token, keyName) {
         return {
             valid: true,
             expired: false,
-            decoded
+            decoded,
         };
     }
     catch (e) {
         console.log(e);
         return {
             valid: false,
-            expired: e.message === 'jwt expired',
-            decoded: null
+            expired: e.message === "jwt expired",
+            decoded: null,
         };
     }
 }

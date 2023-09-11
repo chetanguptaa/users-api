@@ -10,10 +10,10 @@ const connect = async () => {
     const dbUri = config_1.default.get("dbUri");
     try {
         await mongoose_1.default.connect(dbUri);
-        logger_1.default.info('Connected to the DB');
+        logger_1.default.info("Connected to the DB");
     }
     catch (error) {
-        logger_1.default.error('error connecting to the database');
+        logger_1.default.error("error connecting to the database");
         process.exit(1);
     }
 };
